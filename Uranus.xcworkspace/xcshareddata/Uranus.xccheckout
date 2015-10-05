@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7023DB4E-E0FE-4F66-87AD-152B28C243CA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Uranus</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E0E0CA58571CE4D84495BC5F644CCA760F617FE7</key>
+		<string>gitlab.com:csmulhern/mars.git</string>
+		<key>FAAD94AE8C76C7322FC1342975CEA8DC75EDE0BA</key>
+		<string>gitlab.com:csmulhern/uranus.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Uranus.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E0E0CA58571CE4D84495BC5F644CCA760F617FE7</key>
+		<string>../submodules/mars</string>
+		<key>FAAD94AE8C76C7322FC1342975CEA8DC75EDE0BA</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>gitlab.com:csmulhern/uranus.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FAAD94AE8C76C7322FC1342975CEA8DC75EDE0BA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E0E0CA58571CE4D84495BC5F644CCA760F617FE7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mars</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FAAD94AE8C76C7322FC1342975CEA8DC75EDE0BA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>uranus</string>
+		</dict>
+	</array>
+</dict>
+</plist>

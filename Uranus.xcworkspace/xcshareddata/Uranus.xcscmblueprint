@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FAAD94AE8C76C7322FC1342975CEA8DC75EDE0BA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A52FB4D3CA72E924B7579BA5F9DFD2191E9FEF92" : 0,
+    "E0E0CA58571CE4D84495BC5F644CCA760F617FE7" : 0,
+    "FAAD94AE8C76C7322FC1342975CEA8DC75EDE0BA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7023DB4E-E0FE-4F66-87AD-152B28C243CA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A52FB4D3CA72E924B7579BA5F9DFD2191E9FEF92" : "..\/..",
+    "E0E0CA58571CE4D84495BC5F644CCA760F617FE7" : "uranus\/submodules\/mars",
+    "FAAD94AE8C76C7322FC1342975CEA8DC75EDE0BA" : "uranus"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Uranus",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Uranus.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.com:csmulhern\/solar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A52FB4D3CA72E924B7579BA5F9DFD2191E9FEF92"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.com:csmulhern\/mars.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E0E0CA58571CE4D84495BC5F644CCA760F617FE7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.com:csmulhern\/uranus.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FAAD94AE8C76C7322FC1342975CEA8DC75EDE0BA"
+    }
+  ]
+}
