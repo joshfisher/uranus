@@ -1,6 +1,7 @@
 import Foundation
 
-public struct ImageView {
+public struct ImageView: Component {
+    public typealias ViewType = UIImageView
     
     public var backgroundColor: UIColor?
     

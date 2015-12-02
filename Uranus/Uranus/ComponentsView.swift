@@ -31,7 +31,7 @@ public class ComponentsView: UIView {
         }
     }
     
-    public func configureWithLayoutSpecification(layoutSpecification: LayoutSpecification) {
+    internal func configureWithLayoutSpecification(layoutSpecification: LayoutSpecification) {
         specification = layoutSpecification
         
         let componentSpecifications = componentSpecificationsForSpecifications(layoutSpecification.internalSpecificationsBlock())
@@ -54,8 +54,16 @@ public class ComponentsView: UIView {
         }
     }
     
-    public static func sizeForLayoutSpecification(layoutSpecification: LayoutSpecification, constrainedToSize: CGSize) -> CGSize {
+    public func configureWithLayout<LayoutType: Layout where LayoutType.ArrangingType.ModelType == LayoutType>(layout: LayoutType) {
+        configureWithLayoutSpecification(LayoutSpecification(model: layout, arrangingClass: LayoutType.ArrangingType.self))
+    }
+    
+    internal static func sizeForLayoutSpecification(layoutSpecification: LayoutSpecification, constrainedToSize: CGSize) -> CGSize {
         return layoutSpecification.internalSizingBlock(constrainedToSize: constrainedToSize)
+    }
+    
+    public static func sizeForLayout<LayoutType: Layout where LayoutType.ArrangingType.ModelType == LayoutType>(layout: LayoutType, constrainedToSize: CGSize) -> CGSize {
+        return sizeForLayoutSpecification(LayoutSpecification(model: layout, arrangingClass: LayoutType.ArrangingType.self), constrainedToSize: constrainedToSize)
     }
     
     private func viewNeedsToBeResetForComponentSpecifications(componentSpecifications: [ComponentSpecification]) -> Bool {

@@ -12,3 +12,7 @@ public protocol Composable: class {
     
     static func sizeForComponent(component: ComponentType, constrainedToSize: CGSize) -> CGSize
 }
+
+public protocol Component {
+    typealias ViewType: Composable
+}

@@ -4,7 +4,7 @@ import Uranus
 class ViewController: UIViewController {
     
     var componentsView: ComponentsView!
-    var specification: LayoutSpecification!
+    var layout: FlexLayoutModel!
     
     var layoutDirectionBarButtonItem: UIBarButtonItem?
     
@@ -43,19 +43,17 @@ class ViewController: UIViewController {
         acceptButton.setTitle("Okay", forState: UIControlState.Normal)
         acceptButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         
-        let c1 = FlexSpecification(specification: Component(component: label, viewClass: UILabel.self), layoutType: .Dynamic)
-        let c2 = FlexSpecification(specification: Component(component: imageView, viewClass: UIImageView.self), layoutType: .Full)
-        let c3 = FlexSpecification(specification: Component(component: cancelButton, viewClass: UIButton.self), layoutType: .Dynamic, flexible: true)
-        let c4 = FlexSpecification(specification: Component(component: acceptButton, viewClass: UIButton.self), layoutType: .Dynamic, flexible: true)
+        let c1 = FlexSpecification(component: label, layoutType: .Dynamic)
+        let c2 = FlexSpecification(component: imageView, layoutType: .Full)
+        let c3 = FlexSpecification(component: cancelButton, layoutType: .Dynamic, flexible: true)
+        let c4 = FlexSpecification(component: acceptButton, layoutType: .Dynamic, flexible: true)
         
-        let model = FlexLayoutModel(specifications: [c1, c2, c3, c4])
-        
-        specification = LayoutSpecification(arrangingModel: model, arrangingClass: FlexLayout.self)
-        componentsView.configureWithLayoutSpecification(specification)
+        layout = FlexLayoutModel(specifications: [c1, c2, c3, c4])
+        componentsView.configureWithLayout(layout)
     }
     
     override func viewDidLayoutSubviews() -> () {
-        componentsView.frame = CGRect(x: 0.0, y: topLayoutGuide.length, width: view.frame.size.width, height: ComponentsView.sizeForLayoutSpecification(specification, constrainedToSize: view.bounds.size).height)
+        componentsView.frame = CGRect(x: 0.0, y: topLayoutGuide.length, width: view.frame.size.width, height: view.frame.size.height - topLayoutGuide.length)
     }
     
     @available(iOS 9, *)

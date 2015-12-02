@@ -1,6 +1,7 @@
 import Foundation
 
-public struct TextView {
+public struct TextView: Component {
+    public typealias ViewType = UITextView
     
     weak var delegate: UITextViewDelegate?
     

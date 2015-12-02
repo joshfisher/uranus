@@ -1,6 +1,7 @@
 import Foundation
 
-public struct Label {
+public struct Label: Component {
+    public typealias ViewType = UILabel
     
     public var backgroundColor: UIColor?
     

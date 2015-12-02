@@ -7,3 +7,7 @@ public protocol Arranging: class {
     static func viewFramesForModel(model: ModelType, constrainedToSize: CGSize) -> [CGRect]
     static func sizeForModel(model: ModelType, constrainedToSize: CGSize) -> CGSize
 }
+
+public protocol Layout {
+    typealias ArrangingType: Arranging
+}

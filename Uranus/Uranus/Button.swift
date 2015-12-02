@@ -1,6 +1,7 @@
 import Foundation
 
-public struct Button {
+public struct Button: Component {
+    public typealias ViewType = UIButton
     
     public var backgroundColor: UIColor?
     

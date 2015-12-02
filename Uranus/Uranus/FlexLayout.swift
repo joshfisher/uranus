@@ -42,11 +42,22 @@ public class FlexSpecification {
         self.flexible = flexible
         self.growthFactor = growthFactor
     }
+    
+    public convenience init<ComponentType: Component where ComponentType.ViewType: UIView, ComponentType.ViewType.ComponentType == ComponentType>(component: ComponentType, layoutType: FlexLayoutType = .Dynamic, margins: UIEdgeInsets = FlexSpecification.AutomaticMargins, padding: UIEdgeInsets = UIEdgeInsetsZero, verticalAlignment: FlexVerticalAlignment = .Top, widthConstraint: CGFloat? = nil, widthPercentConstraint: CGFloat? = nil, flexible: Bool = false, growthFactor: CGFloat = 1.0) {
+        let specification = Specification.Component(ComponentSpecification(model: component, viewClass: ComponentType.ViewType.self))
+        self.init(specification: specification, layoutType: layoutType, margins: margins, padding: padding, verticalAlignment: verticalAlignment, widthConstraint: widthConstraint, widthPercentConstraint: widthPercentConstraint, flexible: flexible, growthFactor: growthFactor)
+    }
+    
+    public convenience init<LayoutType: Layout where LayoutType.ArrangingType.ModelType == LayoutType>(layout: LayoutType, layoutType: FlexLayoutType = .Dynamic, margins: UIEdgeInsets = FlexSpecification.AutomaticMargins, padding: UIEdgeInsets = UIEdgeInsetsZero, verticalAlignment: FlexVerticalAlignment = .Top, widthConstraint: CGFloat? = nil, widthPercentConstraint: CGFloat? = nil, flexible: Bool = false, growthFactor: CGFloat = 1.0) {
+        let specification = Specification.Layout(LayoutSpecification(model: layout, arrangingClass: LayoutType.ArrangingType.self))
+        self.init(specification: specification, layoutType: layoutType, margins: margins, padding: padding, verticalAlignment: verticalAlignment, widthConstraint: widthConstraint, widthPercentConstraint: widthPercentConstraint, flexible: flexible, growthFactor: growthFactor)
+    }
 }
 
 // MARK: - FlexLayoutModel -
 
-public struct FlexLayoutModel {
+public struct FlexLayoutModel: Layout {
+    public typealias ArrangingType = FlexLayout
     
     let specifications: [FlexSpecification]
     let automaticMarginsApplyToEdges: Bool
@@ -308,7 +319,6 @@ public class FlexLayout: Arranging {
     }
     
     private static func lineLayoutWithModel(model: FlexLayoutModel, constraints: [Constraint], lineWidth: CGFloat, top: CGFloat, isTopLine: Bool, isBottomLine: Bool) -> Layout {
-        
         let sizings = lineSizingsForModel(model, constraints: constraints, lineWidth: lineWidth, isTopLine: isTopLine, isBottomLine: isBottomLine)
         let boundingBoxes = lineBoundingBoxesForSizings(sizings, lineWidth: lineWidth, top: top)
         let viewFrames = lineViewFramesForSizings(sizings, boundingBoxes: boundingBoxes)
