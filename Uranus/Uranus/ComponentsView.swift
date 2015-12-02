@@ -7,12 +7,8 @@ public class ComponentsView: UIView {
     private var views: [UIView] = []
     private var specification: LayoutSpecification?
     
-    public override required init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public override class func layerClass() -> AnyClass {
+        return CATransformLayer.self
     }
     
     public override func layoutSubviews() -> () {
