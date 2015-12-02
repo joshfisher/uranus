@@ -12,8 +12,8 @@ public struct TextView: Component {
     
     var attributedText: NSAttributedString?
     
-    var editable: Bool?
-    var selectable: Bool?
+    public var editable: Bool?
+    public var selectable: Bool?
     
     public init(text: String?, font: UIFont? = nil, textColor: UIColor? = nil, textAlignment: NSTextAlignment? = nil, lineBreakMode: NSLineBreakMode? = nil) {
         self.text = text

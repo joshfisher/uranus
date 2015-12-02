@@ -5,11 +5,17 @@ class ViewController: UIViewController {
     
     var componentsView: ComponentsView!
     var layout: FlexLayoutModel!
+    var alternateLayout: FlexLayoutModel!
+    var showingNormalLayout = true
     
+    var switchLayoutBarButtonItem: UIBarButtonItem!
     var layoutDirectionBarButtonItem: UIBarButtonItem?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        switchLayoutBarButtonItem = UIBarButtonItem(title: "Switch Layout", style: UIBarButtonItemStyle.Plain, target: self, action: "toggleLayout")
+        navigationItem.leftBarButtonItem = switchLayoutBarButtonItem
         
         if #available(iOS 9, *) {
             layoutDirectionBarButtonItem = UIBarButtonItem(title: "Force RTL On", style: UIBarButtonItemStyle.Plain, target: self, action: "toggleRTL")
@@ -43,17 +49,32 @@ class ViewController: UIViewController {
         acceptButton.setTitle("Okay", forState: UIControlState.Normal)
         acceptButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         
-        let c1 = FlexSpecification(component: label, layoutType: .Dynamic)
+        var textView = TextView(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", font: UIFont.systemFontOfSize(20.0))
+        textView.editable = false
+        
+        let c1 = FlexSpecification(component: label, layoutType: .Full)
         let c2 = FlexSpecification(component: imageView, layoutType: .Full)
         let c3 = FlexSpecification(component: cancelButton, layoutType: .Dynamic, flexible: true)
         let c4 = FlexSpecification(component: acceptButton, layoutType: .Dynamic, flexible: true)
+        let c5 = FlexSpecification(component: textView, layoutType: .Full)
         
         layout = FlexLayoutModel(specifications: [c1, c2, c3, c4])
+        alternateLayout = FlexLayoutModel(specifications: [c5, c4])
         componentsView.configureWithLayout(layout)
     }
     
     override func viewDidLayoutSubviews() -> () {
         componentsView.frame = CGRect(x: 0.0, y: topLayoutGuide.length, width: view.frame.size.width, height: view.frame.size.height - topLayoutGuide.length)
+    }
+    
+    func toggleLayout() -> () {
+        showingNormalLayout = !showingNormalLayout
+        if showingNormalLayout {
+            componentsView.configureWithLayout(layout, animated: true)
+        }
+        else {
+            componentsView.configureWithLayout(alternateLayout, animated: true)
+        }
     }
     
     @available(iOS 9, *)
