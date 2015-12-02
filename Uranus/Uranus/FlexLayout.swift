@@ -159,7 +159,7 @@ public class FlexLayout: Arranging {
     
     private static func layoutForModel(model: FlexLayoutModel, constrainedToSize: CGSize) -> Layout {
         let constraints = model.specifications.map({(flexSpecification) -> Constraint in
-            return self.sizeConstraintForModel(model, flexSpecification: flexSpecification, maxWidth: constrainedToSize.width)
+            return sizeConstraintForModel(model, flexSpecification: flexSpecification, maxWidth: constrainedToSize.width)
         })
         
         var lines: [[Constraint]] = []
@@ -209,7 +209,7 @@ public class FlexLayout: Arranging {
     
     private static func lineSizingsForModel(model: FlexLayoutModel, constraints: [Constraint], lineWidth: CGFloat, isTopLine: Bool, isBottomLine: Bool) -> [Sizing] {
         let margins = constraints.enumerate().map({(index, constraint) -> UIEdgeInsets in
-            return self.adjustedMarginsForComponent(model, margins: constraint.flexSpecification.margins, isTopEdge: isTopLine, isLeftEdge: (index == 0), isBottomEdge: isBottomLine, isRightEdge: (index == constraints.count - 1))
+            return adjustedMarginsForComponent(model, margins: constraint.flexSpecification.margins, isTopEdge: isTopLine, isLeftEdge: (index == 0), isBottomEdge: isBottomLine, isRightEdge: (index == constraints.count - 1))
         })
         
         var widths = constraints.map({(constraint) -> CGFloat in
@@ -244,7 +244,7 @@ public class FlexLayout: Arranging {
         }
         
         let heights = constraints.zip(widths).map({(constraint, width) -> CGFloat in
-            if constraint.size.height != self.NoConstraint {
+            if constraint.size.height != NoConstraint {
                 return constraint.size.height
             }
             else {

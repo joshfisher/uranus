@@ -148,7 +148,7 @@ public class ComponentsView: UIView {
     private func userInterfaceLayoutDirection() -> UIUserInterfaceLayoutDirection {
         let layoutDirection: UIUserInterfaceLayoutDirection
         if #available(iOS 9, *) {
-            layoutDirection = UIView.userInterfaceLayoutDirectionForSemanticContentAttribute(self.semanticContentAttribute)
+            layoutDirection = UIView.userInterfaceLayoutDirectionForSemanticContentAttribute(semanticContentAttribute)
         }
         else {
             layoutDirection = UIApplication.sharedApplication().userInterfaceLayoutDirection
